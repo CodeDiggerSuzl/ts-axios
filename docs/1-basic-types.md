@@ -1,6 +1,6 @@
 # Basic types
-1. install
-
+- boolean
+-
 ## First ts app
 编译:
 ```

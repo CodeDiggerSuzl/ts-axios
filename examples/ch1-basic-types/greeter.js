@@ -5,6 +5,7 @@ var User = /** @class */ (function () {
         this.fullName = firstName + ' ' + lastName;
     }
     return User;
+    // closure TODO
 }());
 function greeter(person) {
     return 'hello,' + person.firstName + ' ' + person.lastName;
