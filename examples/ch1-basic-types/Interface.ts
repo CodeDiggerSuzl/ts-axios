@@ -116,4 +116,30 @@ let mySearch2: SearchFunc
 mySearch = function(src: string, sub: string): boolean {
 	return src.search(sub) > -1
 }
-// http://localhost:8080/ts-axios/chapter2/interface.html#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B
+
+interface ClockConstructor {
+	new (hour: number, minute: number): ClockInterface
+}
+interface ClockInterface {
+	tick()
+}
+
+function createClock(ctor: ClockConstructor, hour: number, minute: number): ClockInterface {
+	return new ctor(hour, minute)
+}
+
+class DigitalClock implements ClockInterface {
+	constructor(h: number, m: number) {}
+	tick() {
+		console.log('beep beep')
+	}
+}
+class AnalogClock implements ClockInterface {
+	constructor(h: number, m: number) {}
+	tick() {
+		console.log('tick tock')
+	}
+}
+
+let digital = createClock(DigitalClock, 12, 17)
+let analog = createClock(AnalogClock, 7, 32)
